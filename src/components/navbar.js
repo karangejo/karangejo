@@ -1,14 +1,23 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Grid, Paper} from '@material-ui/core';
 import {CrabButton, LobsterButton, AnchorButton, ShellButton} from 'marine-ui-react';
 
-const navbar = props => {
+const bkgCol = "#FEFBEA"
+const btnSize = 1.1;
 
-        const bkgCol = "#FEFBEA"
-        const btnSize = 1.1;
+function Navbar(props) {
+        
+        const [paperElevation, setPaperElevation] = useState(3)
+
+        const mouseEntered = () => {
+                setPaperElevation(10);
+        }
+        const mouseLeft = () => {
+                setPaperElevation(3);
+        }
         return (        
                 <Grid style={{padding: "10px 10px 10px 10px"}}>
-                        <Paper elevation={10} style={{background: bkgCol, padding: "10px 10px 10px 10px", width: "80vw"}}>
+                        <Paper onMouseLeave={mouseLeft} onMouseEnter={mouseEntered} elevation={paperElevation} style={{background: bkgCol, padding: "10px 10px 10px 10px", width: "80vw"}}>
 <                               Grid container direction="row" spacing={2} alignItems="flex-end" justify="center">
                                         <Grid item>
                                                 <AnchorButton text="Home" size={btnSize} backgroundColor={bkgCol}/>
@@ -28,7 +37,7 @@ const navbar = props => {
         );
 };
 
-export default navbar;
+export default Navbar;
 
 //colors
 // #FEFBEA cosmic latte
