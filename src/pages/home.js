@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Navbar from '../components/navbar';
 import {Grid} from '@material-ui/core';
-import {useSpring, animated, interpolate} from 'react-spring'
+import {useSpring, animated } from 'react-spring'
 import MoonPhase from 'moonphases-react'
 import Boat from '../images/boat-1297127.png';
-import useInterval from '../utils/useInterval';
 
 function Home(){
-      const [opacity, setOpacity] = useState(0);
-      useInterval(() => {
-            setOpacity(opacity+0.1);
-      },100)
-      
-       useEffect(() => {
-             console.log(Math.sin(opacity));
-       },[opacity])
+      const props = useSpring({opacity: 1, from: {opacity: 0}})
+
       return(
             <div style={{ background: "linear-gradient(90deg, rgba(236,223,149,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(236,223,149,1) 100%)"}}>
               <Grid container direction="column" spacing={4} justify="center" alignItems="center">
@@ -22,9 +15,9 @@ function Home(){
                           <Navbar/>
                   </Grid>
                   <Grid item>
-                              <animated.div style={{opacity: Math.sin(opacity)}}>
-                              <MoonPhase/>
-                        </animated.div>
+                              <animated.div style={props}>
+                                    <MoonPhase/>
+                              </animated.div>
                   </Grid>
                   <Grid item>
                         <h2>
