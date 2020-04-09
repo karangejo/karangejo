@@ -9,7 +9,7 @@ function Home(){
       const props = useSpring({opacity: 1, from: {opacity: 0}})
 
       return(
-            <div style={{ background: "linear-gradient(90deg, rgba(236,223,149,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(236,223,149,1) 100%)"}}>
+            <div style={{ background: "linear-gradient(90deg, rgba(152,193,217,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(152,193,217,1) 100%)"}}>
               <Grid container direction="column" spacing={4} justify="center" alignItems="center">
                   <Grid item>
                           <Navbar/>
@@ -39,3 +39,7 @@ function Home(){
 export default Home
 
 
+// white and blue 
+//linear-gradient(90deg, rgba(152,193,217,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(152,193,217,1) 100%)
+// white and yellow
+//linear-gradient(90deg, rgba(236,223,149,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(236,223,149,1) 100%)

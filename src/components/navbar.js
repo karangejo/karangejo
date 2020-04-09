@@ -10,9 +10,11 @@ function Navbar(props) {
         const [shellFill, setSFill] = useState("#000");
         const [anchorFill, setAFill] = useState("#000")
         
-        const hoveredCol = "#93B48B";
+        const hoveredCol = "#0c7fc2";
         const bkgCol = "#FEFBEA";
         const btnSize = 1.1;
+        const font = "Fredericka the Great"
+        const fontS = "13px"
       
         const mouseEntered = () => {
                 setPaperElevation(10);
@@ -56,16 +58,16 @@ function Navbar(props) {
                         <Paper onMouseLeave={mouseLeft} onMouseEnter={mouseEntered} elevation={paperElevation} style={{background: bkgCol, padding: "10px 10px 10px 10px", width: "80vw"}}>
 <                               Grid container direction="row" spacing={2} alignItems="flex-end" justify="center">
                                         <Grid item>       
-                                               <AnchorButton onMouseLeave={leftAButton} onMouseEnter={enteredAButton} size={btnSize} fill={anchorFill} fontColor={anchorFill} text="Home"  backgroundColor={bkgCol}/>
+                                               <AnchorButton fontSize={fontS} fontFamily={font} onMouseLeave={leftAButton} onMouseEnter={enteredAButton} size={btnSize} fill={anchorFill} fontColor={anchorFill} text="Home"  backgroundColor={bkgCol}/>
                                         </Grid>
                                         <Grid item>
-                                                <LobsterButton onMouseLeave={leftLButton} onMouseEnter={enteredLButton} size={btnSize} fill={lobsterFill} fontColor={lobsterFill} text="Code"  backgroundColor={bkgCol}/> 
+                                                <LobsterButton fontSize={fontS} fontFamily={font} onMouseLeave={leftLButton} onMouseEnter={enteredLButton} size={btnSize} fill={lobsterFill} fontColor={lobsterFill} text="Code"  backgroundColor={bkgCol}/> 
                                         </Grid>
                                         <Grid item>
-                                                 <CrabButton onMouseLeave={leftCButton} onMouseEnter={enteredCButton} size={btnSize} fill={crabFill} fontColor={crabFill} text="Blog"  backgroundColor={bkgCol}/>
+                                                 <CrabButton fontSize={fontS} fontFamily={font} onMouseLeave={leftCButton} onMouseEnter={enteredCButton} size={btnSize} fill={crabFill} fontColor={crabFill} text="Blog"  backgroundColor={bkgCol}/>
                                         </Grid>
                                         <Grid item>
-                                                <ShellButton onMouseLeave={leftSButton} onMouseEnter={enteredSButton} size={btnSize} fill={shellFill} fontColor={shellFill} text="Music"  backgroundColor={bkgCol}/>  
+                                                <ShellButton fontSize={fontS} fontFamily={font} onMouseLeave={leftSButton} onMouseEnter={enteredSButton} size={btnSize} fill={shellFill} fontColor={shellFill} text="Music"  backgroundColor={bkgCol}/>  
                                         </Grid>
                                 </Grid>   
                         </Paper>    
