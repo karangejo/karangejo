@@ -12,7 +12,7 @@ function Navbar(props) {
         const [anchorFill, setAFill] = useState("#000")
 
         const borderCol = "linear-gradient(90deg, rgba(0,100,158,1) 0%, rgba(12,127,194,1) 20%, rgba(12,127,194,1) 80%, rgba(0,100,158,1) 100%)"
-        const hoveredCol = "#0c7fc2";
+        const hoveredCol = "#00649e";
         const bkgCol = "#FEFBEA";
         const btnSize = 1.1;
         const font = "Fredericka the Great"

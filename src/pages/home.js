@@ -1,77 +1,26 @@
-import React, { useState } from 'react'
-import Navbar from '../components/navbar';
+import React from 'react'
 import {Grid} from '@material-ui/core';
-import {useSpring, animated, config } from 'react-spring'
-import MoonPhase from 'moonphases-react'
+import Layout from '../components/layout';
 import Boat from '../images/boat-1297127.png';
-import KnotsLeft from '../components/knotsLeft';
-import KnotsRight from '../components/knotsRight';
 
 function Home(){
-      const [moonHovered, setMoonHovered] = useState(false);
-      const {opacity} = useSpring({config: config.slow, opacity: 1, from: {opacity: 0}})
-      const moonProps = useSpring({opacity: moonHovered ? 0.5 : 1})
-     
-
-      const enteredMoon = () => {
-            console.log("entered moon")
-            setMoonHovered(true);
-      }
-      const leftMoon = () => {
-            setMoonHovered(false);
-      }
+   
 
       return(
-            <div style={{background: "linear-gradient(90deg, rgba(152,193,217,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(152,193,217,1) 100%)"}}>
-                  <Grid container direction="column" spacing={4} justify="center" alignItems="center">
-                        
+            <Layout boatImage={Boat} imageWidth="35vw">
+                  <Grid container direction="column" justify="center" alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px"}}>
                         <Grid item>
-                              <Navbar/>
+                              <h1>
+                                    Home
+                              </h1>
                         </Grid>
-                        
                         <Grid item>
-                              <Grid container direction="row" wrap="nowrap" spacing={4} justify="center" alignItems="flex-start">
-                                   <Grid item xs>
-                                         <KnotsLeft/>
-                                   </Grid>
-                                    <Grid item xs>
-                                          <Grid container direction="column" spacing={4} justify="flex-start" alignItems="center">
-                                                <Grid item>
-                                                      <div style={{width: "72vw"}}/>
-                                                </Grid>
-                                                <Grid item> 
-                                                      <animated.div style={moonProps} onMouseEnter={enteredMoon} onMouseLeave={leftMoon}>
-                                                            <MoonPhase />
-                                                      </animated.div>
-                                                </Grid>
-                                                
-                                                <Grid item>
-                                                      <animated.div style={{opacity: opacity}}>
-                                                            <h2>
-                                                                  Home
-                                                            </h2>
-                                                      </animated.div>
-                                                </Grid>
-                                                
-                                                <Grid item>
-                                                      <animated.img src={Boat} style={{height:'auto',width:'30vw', opacity: opacity}} alt="a sailboat"/>
-                                                </Grid>
-                              
-                                           </Grid>
-                                    </Grid>
-                                    <Grid item xs>
-                                         <KnotsRight/>
-                                   </Grid>
-                              </Grid>
-
-                              
+                              <p>
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                              </p>
                         </Grid>
-                        
-                        <Grid item>
-                              <Navbar/>
-                        </Grid>
-                  </Grid>      
-      </div>
+                  </Grid>
+            </Layout>
       )
         
       }

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {Grid} from '@material-ui/core';
-import {useSpring, animated, config } from 'react-spring'
+import AnimatedImage from './animatedImage';
 import knot1 from '../images/knots/knot1.png';
 import knot2 from '../images/knots/knot2.png';
 import knot3 from '../images/knots/knot3.png';
@@ -16,44 +16,46 @@ import knot11 from '../images/knots/knot21.png';
 
 
 function KnotsLeft(){
-    const {opacity} = useSpring({config: config.slow, opacity: 1, from: {opacity: 0}})
     const imgWidth = "3vw"   
       
 
     return(
-              <Grid container direction="column" spacing={3} justify="center" alignItems="flex-start">
+              <Grid container direction="column" spacing={3} justify="center" alignItems="flex-end">
                   <Grid item>
-                      <animated.img src={knot1} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                      <div style={{width: "4vw"}}/>
+                  </Grid>
+                  <Grid item>
+                      <AnimatedImage src={knot1} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item> 
-                      <animated.img src={knot2} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>               
+                      <AnimatedImage src={knot2} imgWidth={imgWidth} alt="a knot"/>               
                   </Grid>
                   <Grid item>
-                      <animated.img src={knot3} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                      <AnimatedImage src={knot3} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item>
-                        <animated.img src={knot4} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                        <AnimatedImage src={knot4} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item>
-                      <animated.img src={knot5} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                      <AnimatedImage src={knot5} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item> 
-                      <animated.img src={knot6} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>               
+                      <AnimatedImage src={knot6} imgWidth={imgWidth} alt="a knot"/>               
                   </Grid>
                   <Grid item>
-                      <animated.img src={knot7} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                      <AnimatedImage src={knot7} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item>
-                        <animated.img src={knot8} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                        <AnimatedImage src={knot8} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item>
-                        <animated.img src={knot9} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                        <AnimatedImage src={knot9} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item>
-                        <animated.img src={knot10} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                        <AnimatedImage src={knot10} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item>
-                        <animated.img src={knot11} style={{height:'auto',width:imgWidth, opacity: opacity}} alt="a knot"/>
+                        <AnimatedImage src={knot11} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
               </Grid>      
       )
