@@ -5,7 +5,7 @@ import {useSpring, animated, config } from 'react-spring'
 import MoonPhase from 'moonphases-react'
 import Boat from '../images/boat-1297127.png';
 
-function Home(){
+function Blog(){
       const [moonHovered, setMoonHovered] = useState(false);
       const {opacity} = useSpring({config: config.slow, opacity: 1, from: {opacity: 0}})
       const moonProps = useSpring({opacity: moonHovered ? 0.5 : 1})
@@ -20,7 +20,7 @@ function Home(){
       }
 
       return(
-            <animated.div style={{ opacity: opacity, background: "linear-gradient(90deg, rgba(152,193,217,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(152,193,217,1) 100%)"}}>
+            <div style={{background: "linear-gradient(90deg, rgba(152,193,217,1) 0%, rgba(254,251,234,1) 20%, rgba(254,251,234,1) 80%, rgba(152,193,217,1) 100%)"}}>
               <Grid container direction="column" spacing={4} justify="center" alignItems="center">
                   <Grid item>
                           <Navbar/>
@@ -31,23 +31,25 @@ function Home(){
                         </animated.div>
                   </Grid>
                   <Grid item>
-                        <h2>
-                              Some really cool text!
+                      <animated.div style={{opacity: opacity}}>
+                         <h2>
+                            Blog
                         </h2>
+                      </animated.div>
                   </Grid>
                   <Grid item>
-                        <animated.img src={Boat} style={{height:'auto',width:'45vw', opacity: 0.7}} alt="a sailboat"/>
+                        <animated.img src={Boat} style={{height:'auto',width:'45vw', opacity: opacity}} alt="a sailboat"/>
                   </Grid>
                   <Grid item>
                           <Navbar/>
                   </Grid>
               </Grid>      
-      </animated.div>
+      </div>
       )
         
       }
 
-export default Home
+export default Blog
 
 
 // white and blue 
