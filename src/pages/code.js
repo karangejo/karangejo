@@ -8,7 +8,7 @@ function Code(){
    
 
       return(
-            <Layout boatImage={Boat} imageWidth="35vw" borderRight={<CelticRight alignItems="flex-start"/>} borderLeft={<CelticLeft alignItems="flex-end"/>}>
+            <Layout boatImage={Boat} imageWidth="35vw" borderRight={<CelticRight alignItems="flex-start"/>} borderLeft={<CelticLeft alignItems="flex-end"/>} >
                   <h1>
                         Code
                   </h1>

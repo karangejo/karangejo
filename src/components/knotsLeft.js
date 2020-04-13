@@ -16,13 +16,13 @@ import knot11 from '../images/knots/knot21.png';
 
 
 function KnotsLeft(){
-    const imgWidth = "3"   
+    const imgWidth = "5"   
       
 
     return(
               <Grid container direction="column" wrap="nowrap" spacing={3} justify="space-around" alignItems="flex-end" style={{height: "100%"}}>
                   <Grid item> 
-                        <div style={{width: "4vw"}}/>
+                        <div style={{width: "6vw"}}/>
                         <AnimatedImage src={knot2} imgWidth={imgWidth} alt="a knot"/>                   
                   </Grid>
                   <Grid item>

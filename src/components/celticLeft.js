@@ -1,16 +1,16 @@
 import React from 'react'
 import {Grid} from '@material-ui/core';
 import AnimatedImage from './animatedImage';
-import celtic1 from '../images/celtic/celtic2.png';
-import celtic2 from '../images/celtic/celtic4.png';
-import celtic3 from '../images/celtic/celtic6.png';
-import celtic4 from '../images/celtic/celtic8.png';
-import celtic5 from '../images/celtic/celtic10.png';
-import celtic6 from '../images/celtic/celtic12.png';
-import celtic7 from '../images/celtic/celtic14.png';
-import celtic8 from '../images/celtic/celtic16.png';
-import celtic9 from '../images/celtic/celtic18.png';
-import celtic10 from '../images/celtic/celtic20.png';
+import celtic1 from '../images/celtic/celtic1.png';
+import celtic2 from '../images/celtic/celtic3.png';
+import celtic3 from '../images/celtic/celtic5.png';
+import celtic4 from '../images/celtic/celtic7.png';
+import celtic5 from '../images/celtic/celtic9.png';
+import celtic6 from '../images/celtic/celtic11.png';
+import celtic7 from '../images/celtic/celtic13.png';
+import celtic8 from '../images/celtic/celtic15.png';
+import celtic9 from '../images/celtic/celtic17.png';
+import celtic10 from '../images/celtic/celtic19.png';
 
 
 

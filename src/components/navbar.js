@@ -16,7 +16,7 @@ function Navbar(props) {
   const [anchorFill, setAFill] = useState("#000");
 
   
-  const hoveredCol = "#00649e";
+  const hoveredCol = "#ba5016";
   const bkgCol = "transparent";
   const btnSize = 1.1;
   const font = "Fredericka the Great";
@@ -64,7 +64,7 @@ function Navbar(props) {
   };
 
   return (
-    <Grid style={{ padding: "20px 0px 10px 0px" }}>
+    <Grid style={{ padding: "5px 0px 0px 0px" }}>
       <Grid
         container
         direction="row"

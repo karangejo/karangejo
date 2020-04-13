@@ -1,24 +1,22 @@
 import React from 'react';
 import { Switch, Route, useLocation } from "react-router-dom";
-import {useTransition, animated, config} from 'react-spring';
+import {useTransition, animated} from 'react-spring';
 import Home from './pages/home';
 import Blog from './pages/blog';
 import Code from './pages/code';
 import Music from './pages/music';
-import './styles.css';
+
 
 function App() {
   let location = useLocation();
-  console.log(location);
   const transition = useTransition(location, location => location.pathname, {
-    config: config.slow,
-    from: {position:"absolute" , width: "100vw" , opacity: 0 , transform: "skew(5deg,5deg)"},
-    enter: {position:"inherit" , opacity: 1, transform: "skew(0deg,0deg)"},
-    leave : {position:"absolute" , width: "100vw", opacity: 0, transform: "skew(-5deg,-5deg)"}
+    from: {opacity: 0},
+    enter: {opacity: 1},
+    leave : {opacity: 0}
   })
 
   return (
-    <>
+    <div>
       {transition.map(({item, props, key}) => (
         <animated.div key={key} style={props}>
             <Switch location={item}>
@@ -29,7 +27,7 @@ function App() {
             </Switch>
         </animated.div>
       ))}
-    </>
+    </div>
   );
 }
 

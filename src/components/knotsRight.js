@@ -14,15 +14,14 @@ import knot10 from '../images/knots/knot20.png';
 
 
 function KnotsRight(){
-    const imgWidth = "3"   
+    const imgWidth = "5"   
       
 
     return(
               <Grid container direction="column" spacing={3} wrap="nowrap" justify="space-around" alignItems="flex-start" style={{height: "100%"}}>             
                   <Grid item>
-                       <div style={{width: "4vw"}}>
-                           <AnimatedImage src={knot1} imgWidth={imgWidth} alt="a knot"/>
-                       </div>
+                        <div style={{width: "6vw"}}/>     
+                        <AnimatedImage src={knot1} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
                   <Grid item> 
                       <AnimatedImage src={knot2} imgWidth={imgWidth} alt="a knot"/>               
