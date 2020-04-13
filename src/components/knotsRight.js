@@ -14,16 +14,15 @@ import knot10 from '../images/knots/knot20.png';
 
 
 function KnotsRight(){
-    const imgWidth = "3vw"   
+    const imgWidth = "3"   
       
 
     return(
-              <Grid container direction="column" spacing={3} justify="center" alignItems="flex-start">
+              <Grid container direction="column" spacing={3} wrap="nowrap" justify="space-around" alignItems="flex-start" style={{height: "100%"}}>             
                   <Grid item>
-                      <div style={{width: "4vw"}}/>
-                  </Grid>
-                  <Grid item>
-                      <AnimatedImage src={knot1} imgWidth={imgWidth} alt="a knot"/>
+                       <div style={{width: "4vw"}}>
+                           <AnimatedImage src={knot1} imgWidth={imgWidth} alt="a knot"/>
+                       </div>
                   </Grid>
                   <Grid item> 
                       <AnimatedImage src={knot2} imgWidth={imgWidth} alt="a knot"/>               
@@ -52,7 +51,8 @@ function KnotsRight(){
                   <Grid item>
                         <AnimatedImage src={knot10} imgWidth={imgWidth} alt="a knot"/>
                   </Grid>
-              </Grid>      
+            </Grid>
+                  
       )
         
       }

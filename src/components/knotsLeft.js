@@ -16,19 +16,17 @@ import knot11 from '../images/knots/knot21.png';
 
 
 function KnotsLeft(){
-    const imgWidth = "3vw"   
+    const imgWidth = "3"   
       
 
     return(
-              <Grid container direction="column" spacing={3} justify="center" alignItems="flex-end">
-                  <Grid item>
-                      <div style={{width: "4vw"}}/>
+              <Grid container direction="column" wrap="nowrap" spacing={3} justify="space-around" alignItems="flex-end" style={{height: "100%"}}>
+                  <Grid item> 
+                        <div style={{width: "4vw"}}/>
+                        <AnimatedImage src={knot2} imgWidth={imgWidth} alt="a knot"/>                   
                   </Grid>
                   <Grid item>
                       <AnimatedImage src={knot1} imgWidth={imgWidth} alt="a knot"/>
-                  </Grid>
-                  <Grid item> 
-                      <AnimatedImage src={knot2} imgWidth={imgWidth} alt="a knot"/>               
                   </Grid>
                   <Grid item>
                       <AnimatedImage src={knot3} imgWidth={imgWidth} alt="a knot"/>

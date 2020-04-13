@@ -4,9 +4,13 @@ import {useSpring, animated, config } from 'react-spring'
 
 
 function AnimatedImage(props){
+    const hoveredWidth = props.imgWidth + ".5vw";
+    const notHoverdWidth = props.imgWidth + "vw";
+
+
     const [imageHovered, setImageHovered] = useState(false);
     const {opacity} = useSpring({config: config.slow, opacity: imageHovered ? 1 : 0.7})
-    const {width} = useSpring({config: config.slow, width: imageHovered ? "3.5vw" : "3vw"})
+    const {width} = useSpring({config: config.slow, width: imageHovered ? hoveredWidth : notHoverdWidth})
       
       
     const enteredImage = () => {

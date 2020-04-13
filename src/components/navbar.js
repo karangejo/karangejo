@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Paper } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import {
   CrabButton,
   LobsterButton,
@@ -9,26 +9,20 @@ import {
 import { useHistory } from "react-router-dom";
 
 function Navbar(props) {
-  const [paperElevation, setPaperElevation] = useState(3);
+ 
   const [lobsterFill, setLFill] = useState("#000");
   const [crabFill, setCFill] = useState("#000");
   const [shellFill, setSFill] = useState("#000");
   const [anchorFill, setAFill] = useState("#000");
 
-  const borderCol =
-    "linear-gradient(90deg, rgba(0,100,158,1) 0%, rgba(12,127,194,1) 20%, rgba(12,127,194,1) 80%, rgba(0,100,158,1) 100%)";
+  
   const hoveredCol = "#00649e";
   const bkgCol = "transparent";
   const btnSize = 1.1;
   const font = "Fredericka the Great";
   const fontS = "13px";
 
-  const mouseEntered = () => {
-    setPaperElevation(10);
-  };
-  const mouseLeft = () => {
-    setPaperElevation(3);
-  };
+
   const enteredAButton = () => {
     setAFill(hoveredCol);
   };
@@ -70,7 +64,7 @@ function Navbar(props) {
   };
 
   return (
-    <Grid style={{ padding: "10px 10px 10px 10px" }}>
+    <Grid style={{ padding: "20px 0px 10px 0px" }}>
       <Grid
         container
         direction="row"
