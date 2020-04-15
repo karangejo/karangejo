@@ -7,3 +7,9 @@ h1 {
 p {
     font-family: Gabriela;
 }
+
+.code-block {
+    width: 50vw;
+    overflow: scroll;
+    white-space: nowrap;
+}
