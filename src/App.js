@@ -9,7 +9,7 @@ import './styles.css';
 
 function App() {
   let location = useLocation();
-  console.log(location);
+
   const transition = useTransition(location, location => location.pathname, {
     config: config.slow,
     from: {position:"absolute" , width: "100vw" , opacity: 0 , transform: "skew(5deg,5deg)"},

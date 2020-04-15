@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "d3-ease": "^1.0.6",
     "marine-ui-react": "^1.0.2",
-    "moonphases-react": "^1.0.3",
+    "moonphases-react": "^1.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
