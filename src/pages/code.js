@@ -8,7 +8,34 @@ import CelticRight from '../components/celticRight';
 import CelticLeft from '../components/celticLeft';
 
 function Code(){
-      const codeString = 
+      
+
+      return(
+            <Layout boatImage={Boat} imageWidth="35vw" borderRight={<CelticRight alignItems="flex-start"/>} borderLeft={<CelticLeft alignItems="flex-end"/>} >
+                  <Grid container direction="column" justify="center" alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px", width: "60vw"}}>
+                        <Grid item>
+                              <h1>
+                                    Code
+                              </h1>
+                        </Grid>
+                        <Grid item>
+                            <h2 align="center">
+                                  Please visit my <a href="https://github.com/karangejo">Github</a> page to see all of my projects. <br/>
+                                  For all of you who live in Taiwan and surf, windsurf or kitesurf. You can check out my site <a href="https://taiwanbuoys.com">Taiwan Buoys.</a>
+                            </h2>
+                        </Grid>
+                  </Grid>
+            </Layout>
+      )
+        
+      }
+
+export default Code
+
+
+/* code block
+
+const codeString = 
       `import {useEffect, useRef } from 'react';
 
       function useInterval(callback, delay) {
@@ -32,24 +59,10 @@ function Code(){
       }
       
       export default useInterval;`
+       
+      //and then display like this: 
 
-      return(
-            <Layout boatImage={Boat} imageWidth="35vw" borderRight={<CelticRight alignItems="flex-start"/>} borderLeft={<CelticLeft alignItems="flex-end"/>} >
-                  <Grid container direction="column" justify="center" alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px", width: "60vw"}}>
-                        <Grid item>
-                              <h1>
-                                    Code
-                              </h1>
-                        </Grid>
-                        <Grid item>
-                              <SyntaxHighlighter className="code-block" language="javascript" style={codeStyle} wrapLines={true}>
-                                    {codeString}
-                              </SyntaxHighlighter>
-                        </Grid>
-                  </Grid>
-            </Layout>
-      )
-        
-      }
-
-export default Code
+      <SyntaxHighlighter className="code-block" language="javascript" style={codeStyle} wrapLines={true}>
+            {codeString}
+      </SyntaxHighlighter>
+*/

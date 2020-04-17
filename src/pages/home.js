@@ -7,19 +7,31 @@ import KnotsRight from '../components/knotsRight';
 
 function Home(){
    
+      const spanCol = "#206c99";
+      const slashCol = "#130303";
 
       return(
-      <Layout boatImage={Boat} imageWidth="35vw" borderRight={<KnotsRight/>} borderLeft={<KnotsLeft/> }>
-                  <Grid container direction="column" justify="center" alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px", width: "60vw"}}>
+      <Layout boatImage={Boat} imageWidth="45vw" borderRight={<KnotsRight/>} borderLeft={<KnotsLeft/> }>
+                  <Grid container direction="column" justify="center" spacing={2} alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px", width: "60vw"}}>
                         <Grid item>
                               <h1>
                                     Home
                               </h1>
                         </Grid>
                         <Grid item>
-                              <p>
-                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                              </p>
+                              <h2 align="center">
+                                    <span className="normal">Hello<br/>I am a</span> 
+                                    <span className="blue"> web developer</span><span className="normal"> / </span> 
+                                    <span className="blue"> web crawler</span><span className="normal"> / </span>  
+                                    <span className="blue"> data scraper</span><span className="normal"> / </span> 
+                                    <span className="blue"> music producer</span><span className="normal"> / </span>  
+                                    <span className="blue"> linux sysadmin</span> 
+                              </h2>                              
+                        </Grid>
+                        <Grid item>
+                              <h2 align="center">
+                                    <span className="normal">I like the <span className="blue">ocean</span>.<br/>Welcome!</span>
+                              </h2>
                         </Grid>
                   </Grid>
             </Layout>
