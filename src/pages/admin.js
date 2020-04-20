@@ -1,27 +1,29 @@
 import React, {useState} from 'react'
 import {Grid} from '@material-ui/core';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import ReactMarkdown from 'react-markdown';
 import Layout from '../components/layout';
 import Boat from '../images/boat-1297127.png';
 import KnotsLeft from '../components/knotsLeft';
 import KnotsRight from '../components/knotsRight';
 
 function Admin(){
-      const [inputType, setInputType] = useState('');
-      const [postObj, setPostObj] = useState({});
-      const [inputBoxes, setInputBoxes] = useState({});
-      
-      const createInputBox = (postType) => {
-          console.log("creating input box for the post type");
+      const [markdownText, setMarkdownText] = useState('');
+      const [preview, setPreview] = useState(false);
+
+      const textChange = (event) => {
+          setMarkdownText(event.currentTarget.value);
       }
 
-      const handleChange = (event) => {
-            const typeOfPost = event.target.value;
-            setInputType(typeOfPost);
-            createInputBox(typeOfPost);
+      const displayPreview = () => {
+            return(
+                <ReactMarkdown source={markdownText}/>
+            );
+      }
+
+      const changePreview = () => {
+          setPreview(!preview);
       }
 
       return(
@@ -33,24 +35,24 @@ function Admin(){
                               </h1>
                         </Grid>
                         <Grid item justifySelf="stretch">
-                            <FormControl style={{width: "30vw"}}>
-                                <InputLabel id="demo-customized-select-label">Input</InputLabel>
-                                <Select
-                                labelId="demo-customized-select-label"
-                                id="demo-customized-select"
-                                value={inputType}
-                                onChange={handleChange}
-                                >
-                                <MenuItem value="">
-                                    <em>None</em>
-                                </MenuItem>
-                                <MenuItem value={'text'}>Text</MenuItem>
-                                <MenuItem value={'code'}>Code</MenuItem>
-                                <MenuItem value={'image'}>Image</MenuItem>
-                                </Select>
-                            </FormControl>         
+                        <TextField
+                            style={{width:"60vw", heigth: "auto"}}
+                            id="outlined-multiline-static"
+                            label="Multiline"
+                            multiline
+                            rows={30}
+                            defaultValue="Markdown Editor"
+                            variant="outlined"
+                            onChange={textChange}
+                            />
                         </Grid>
-                        <Grid item>                
+                        <Grid item>
+                            <Button variant="contained" color="primary" onClick={changePreview}>
+                                Preview
+                            </Button>
+                        </Grid>
+                        <Grid item>   
+                        {preview && displayPreview()}             
                         </Grid>
                   </Grid>
             </Layout>
