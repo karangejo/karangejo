@@ -7,8 +7,6 @@ import KnotsRight from '../components/knotsRight';
 
 function Home(){
    
-      const spanCol = "#206c99";
-      const slashCol = "#130303";
 
       return(
       <Layout boatImage={Boat} imageWidth="45vw" borderRight={<KnotsRight/>} borderLeft={<KnotsLeft/> }>

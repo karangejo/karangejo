@@ -5,6 +5,8 @@ import Home from './pages/home';
 import Blog from './pages/blog';
 import Code from './pages/code';
 import Music from './pages/music';
+import Admin from './pages/admin';
+
 import './styles.css';
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
                 <Route path="/blog" component={Blog} exact/>
                 <Route path="/code" component={Code} exact/>
                 <Route path="/music" component={Music} exact/>
+                <Route path='/admin' component={Admin} exact/>
             </Switch>
         </animated.div>
       ))}
