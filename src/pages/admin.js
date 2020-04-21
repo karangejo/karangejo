@@ -37,7 +37,7 @@ function Admin(){
 
       const displayPreview = () => {
             return(
-                <ReactMarkdown source={markdownText}/>
+                <ReactMarkdown source={markdownText} />
             );
       }
 
@@ -149,7 +149,7 @@ function Admin(){
                             Post
                         </Button>
                     </Grid>
-                    <Grid item>   
+                    <Grid item style={{width: "60vw", overflow: "auto"}}>   
                     {preview && displayPreview()}             
                     </Grid>
                     <Grid item>

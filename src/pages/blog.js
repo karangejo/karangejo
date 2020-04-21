@@ -1,22 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {Grid, Paper} from '@material-ui/core';
-import queryString from 'query-string';
 import Layout from '../components/layout';
 import Boat from '../images/boat-2027004.png';
 import FishRight from '../components/fishRight';
 import FishLeft from '../components/fishLeft';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import ReactMarkdown from 'react-markdown';
 
 
 
 function Blog(props){
-      const [postId, setPostId] = useState('');
-      const [showAll, setShowAll] = useState(true);
       const [posts, setAllPosts] = useState([]);
-      const [displayPost, setDisplayPost] = useState({})
-      const [currentKey, setCurrentKey] = useState('');
       const history = useHistory();
 
 
@@ -31,43 +25,21 @@ function Blog(props){
                   })
           }
 
-      useEffect(() => {
-            if(props.location.search){
-                  setShowAll(false);
-            } else {
-                  setShowAll(true);
-            }
-      },[props.location.search, setPostId])
 
       useEffect(() => {
             getPosts()
       },[])
 
-      const displayOnePost = () => {
-            return(
-                  <Grid container direction="column" justify="center"  alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px"}}>
-                            <Grid item>
-                                <h2>{displayPost.name}</h2>
-                            </Grid>
-                            <Grid item>
-                                <ReactMarkdown source={displayPost.markdown}/>
-                            </Grid>
-                        </Grid>
-            )
 
-      }
-
-      const goToPost = (id,key) => {
-            setCurrentKey(key)
-            setDisplayPost(posts[key])
-            history.push('blog?postId='+id);
+      const goToPost = (id) => {
+            history.push('post?postId='+id);
       }
 
       const displayAllPosts = () => {
             const items = posts.map((item, key) => {
                 const itemId = item._id;
                 return(
-                    <Paper key={key} style={{width: "25vw", background: "transparent"}}  onClick={() => goToPost(itemId, key)}>
+                    <Paper key={key} style={{width: "25vw", background: "transparent"}}  onClick={() => goToPost(itemId)}>
                         <Grid container direction="column" justify="center"  alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px"}}>
                             <Grid item>
                                 <h2>{item.name}</h2>
@@ -89,7 +61,7 @@ function Blog(props){
                         </h1>
                   </Grid>
                   <Grid item>
-                        {showAll ? displayAllPosts() : displayOnePost()}
+                        { displayAllPosts()}
                   </Grid>
             </Grid>
       </Layout>

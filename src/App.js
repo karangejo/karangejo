@@ -6,6 +6,7 @@ import Blog from './pages/blog';
 import Code from './pages/code';
 import Music from './pages/music';
 import Admin from './pages/admin';
+import Post from './pages/post';
 
 import './styles.css';
 
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/code" component={Code} exact/>
                 <Route path="/music" component={Music} exact/>
                 <Route path='/admin' component={Admin} exact/>
+                <Route path="/post" component={Post} exact/>
             </Switch>
         </animated.div>
       ))}
