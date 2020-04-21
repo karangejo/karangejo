@@ -1,7 +1,7 @@
 import React from 'react'
 import {Grid} from '@material-ui/core';
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-import { duotoneSea as codeStyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
+//import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+//import { duotoneSea as codeStyle } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Layout from '../components/layout';
 import Boat from '../images/battleship.png';
 import CelticRight from '../components/celticRight';

@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
   console.log(req)
   const post = new Post({
     date: req.body.date,
+    name: req.body.name,
     type: req.body.type,
     markdown: req.body.markdown
   })
