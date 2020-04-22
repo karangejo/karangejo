@@ -24,7 +24,7 @@ function Admin(){
 
       const getPosts = async () => {
         const posts = await axios.get(process.env.REACT_APP_GET_ALL_POSTS_URL);
-        console.log(posts);
+        //console.log(posts);
         setAllPosts(posts.data);
       }
 
@@ -68,7 +68,7 @@ function Admin(){
           
             axios.post(process.env.REACT_APP_SUBMIT_ONE_POST_URL, post)
               .then((res) => {
-                  console.log(res);
+                 // console.log(res);
               })
               .catch((err) => {
                   console.log(err);
@@ -164,7 +164,7 @@ function Admin(){
       const tryLogin = () => {
         axios.post(process.env.REACT_APP_CHECK_LOGIN_URL, {pass:pass})
             .then( (res) => {
-                console.log(res);
+                //console.log(res);
                 if(res.data.status === 1){
                     setLoggedIn(true);
                 }

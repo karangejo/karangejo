@@ -18,7 +18,7 @@ function Blog(props){
             axios.get('http://localhost:3001/post')
                   .then((res) => {
                         setAllPosts(res.data);
-                        console.log(res.data);
+                    //    console.log(res.data);
                   })
                   .catch((err) => {
                         console.log(err);
