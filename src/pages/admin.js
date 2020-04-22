@@ -12,6 +12,7 @@ import sha256 from 'crypto-js/sha256';
 
 
 function Admin(){
+      console.log()
       const [markdownText, setMarkdownText] = useState('');
       const [postName, setPostName] = useState('');
       const [postType, setPostType] = useState('');
@@ -22,7 +23,7 @@ function Admin(){
 
 
       const getPosts = async () => {
-        const posts = await axios.get('http://localhost:3001/post');
+        const posts = await axios.get(process.env.REACT_APP_GET_ALL_POSTS_URL);
         console.log(posts);
         setAllPosts(posts.data);
       }
@@ -65,7 +66,7 @@ function Admin(){
           if(validateInputs()){
             const post = {name: postName, type: postType, date: new Date(), markdown: markdownText}
           
-            axios.post('http://localhost:3001/post', post)
+            axios.post(process.env.REACT_APP_SUBMIT_ONE_POST_URL, post)
               .then((res) => {
                   console.log(res);
               })
@@ -113,7 +114,7 @@ function Admin(){
                         </h1>
                     </Grid>
                     <Grid item>
-                    <TextField id="outlined-basic" label="Post Name" placeholder="" value="" variant="outlined" onChange={handleNameChange}/>
+                    <TextField id="outlined-basic" label="Post Name"  type="text" variant="outlined" onChange={handleNameChange}/>
 
                     </Grid>
                     <Grid item>
@@ -129,7 +130,7 @@ function Admin(){
                             <MenuItem value={"code"}>Code</MenuItem>
                         </Select>
                     </Grid>
-                    <Grid item justifySelf="stretch">
+                    <Grid item >
                     <TextField
                         style={{width:"60vw", heigth: "auto"}}
                         id="outlined-multiline-static"
@@ -161,7 +162,7 @@ function Admin(){
       }
 
       const tryLogin = () => {
-        axios.post('http://localhost:3001/login', {pass:pass})
+        axios.post(process.env.REACT_APP_CHECK_LOGIN_URL, {pass:pass})
             .then( (res) => {
                 console.log(res);
                 if(res.data.status === 1){
@@ -187,8 +188,7 @@ function Admin(){
                     </h1>
                 </Grid>
                 <Grid item>
-          
-                    <TextField id="standard-password-input" label="password" variant="outlined" type="password" onChange={handlePassChange}/>
+                    <TextField id="standard-password-input" label="password"  type="password" variant="outlined"  onChange={handlePassChange}/>
                 </Grid>
                 <Grid item>
                         <Button variant="contained" color="primary" onClick={tryLogin}>

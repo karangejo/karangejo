@@ -16,7 +16,7 @@ function Post(props){
 
 
       const getPost =  (id) => {
-            axios.post('http://localhost:3001/post/id', {id: id})
+            axios.post(process.env.REACT_APP_GET_ONE_POST_BY_ID_URL, {id: id})
                   .then((res) => {
                         setPost(res.data[0]);
                         setDisplay(true);

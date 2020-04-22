@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
 
 // get one post by id
 router.post('/id/', async (req, res) => {
-  console.log(req.body.id);
   try{
     const post = await Post.find({_id: req.body.id})
     res.status(200).json(post)
