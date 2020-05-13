@@ -39,7 +39,7 @@ function Blog(props){
             const items = posts.map((item, key) => {
                 const itemId = item._id;
                 return(
-                    <Paper key={key} style={{width: "25vw", background: "transparent"}}  onClick={() => goToPost(itemId)}>
+                    <Paper key={key} style={{width: "25vw", background: "transparent", cursor: "pointer"}}  onClick={() => goToPost(itemId)}>
                         <Grid container direction="column" justify="center"  alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px"}}>
                             <Grid item>
                                 <h2>{item.name}</h2>
