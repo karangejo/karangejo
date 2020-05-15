@@ -11,7 +11,7 @@ function Code(){
       
 
       return(
-            <Layout boatImage={Boat} imageWidth="35vw" borderRight={<CelticRight alignItems="flex-start"/>} borderLeft={<CelticLeft alignItems="flex-end"/>} >
+            <Layout boatImage={Boat} imageWidth="40vw" borderRight={<CelticRight alignItems="flex-start"/>} borderLeft={<CelticLeft alignItems="flex-end"/>} >
                   <Grid container direction="column" justify="center" alignItems="center" style={{paddingRight: "10px", paddingLeft: "10px", width: "60vw"}}>
                         <Grid item>
                               <h1>

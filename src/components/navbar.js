@@ -64,7 +64,7 @@ function Navbar(props) {
   };
 
   return (
-    <Grid style={{ padding: "5px 0px 0px 0px" }}>
+    <Grid style={{ padding: "5px 0px 20px 0px" }}>
       <Grid
         container
         direction="row"

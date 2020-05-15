@@ -2,18 +2,17 @@ import React from "react";
 import Navbar from "../components/navbar";
 import { Grid } from "@material-ui/core";
 import { useSpring, animated, config } from "react-spring";
+import { isMobile } from "react-device-detect";
 
 import AnimatedMoonPhase from "./animatedMoonPhases";
 
 function Layout(props) {
   //const [moonHovered, setMoonHovered] = useState(false);
-  const { opacity, imageWidth } = useSpring({
+  const { opacity } = useSpring({
     config: config.default,
-    to: { opacity: 1, imageWidth: props.imageWidth },
-    from: { opacity: 0, imageWidth: "1vw" },
+    to: { opacity: 1 },
+    from: { opacity: 0 },
   });
-  //const cloudOpacity = "0.3";
-  //const cloudDuration = 20000;
 
   return (
     <div
@@ -30,11 +29,13 @@ function Layout(props) {
         spacing={4}
         justify="center"
       >
-        <Grid item xs>
-          <animated.div style={{ opacity: opacity, height: "100%" }}>
-            {props.borderLeft}
-          </animated.div>
-        </Grid>
+        {isMobile ? null : (
+          <Grid item xs>
+            <animated.div style={{ opacity: opacity, height: "100%" }}>
+              {props.borderLeft}
+            </animated.div>
+          </Grid>
+        )}
         <Grid item>
           <Grid
             container
@@ -75,7 +76,7 @@ function Layout(props) {
                     src={props.boatImage}
                     style={{
                       height: "auto",
-                      width: imageWidth,
+                      width: props.imageWidth,
                       opacity: opacity,
                     }}
                     alt="a sailboat"
@@ -88,11 +89,13 @@ function Layout(props) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs>
-          <animated.div style={{ opacity: opacity, height: "100%" }}>
-            {props.borderRight}
-          </animated.div>
-        </Grid>
+        {isMobile ? null : (
+          <Grid item xs>
+            <animated.div style={{ opacity: opacity, height: "100%" }}>
+              {props.borderRight}
+            </animated.div>
+          </Grid>
+        )}
       </Grid>
     </div>
   );
