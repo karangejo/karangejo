@@ -11,8 +11,6 @@ import Post from "./pages/post";
 import "./styles.css";
 
 function App() {
-
-
   return (
     <>
       <Switch>
