@@ -26,19 +26,18 @@ jobs:
         node-version: '12.x'
     - run: npm install
     - run: npm run build
-    - run: ls
-#     # erase build folder
-#     - uses: garygrossgarten/github-action-ssh@v0.5.0
-#       with:
-#         command: rm -r /home/karang/Documents/karangejo/build
-#         host: ${{ secrets.SERVER_IP }}
-#         username: ${{ secrets.SERVER_USER_NAME }}
-#         password: ${{ secrets.SERVER_PASS }}
-#     # Copy new build to remote location
-#     - uses: garygrossgarten/github-action-scp@release
-#       with:
-#         local: ./build/
-#         remote: /home/karang/Documents/karangejo/
-#         host: ${{ secrets.SERVER_IP }}
-#         username: ${{ secrets.SERVER_USER_NAME }}
-#         password: ${{ secrets.SERVER_PASS }}
+    # erase build folder
+    - uses: garygrossgarten/github-action-ssh@v0.5.0
+      with:
+        command: rm -r /home/karang/Documents/karangejo/build ; mkdir /home/karang/Documents/karangejo/build
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER_NAME }}
+        password: ${{ secrets.SERVER_PASS }}
+    # Copy new build to remote location
+    - uses: garygrossgarten/github-action-scp@release
+      with:
+        local: ./build
+        remote: /home/karang/Documents/karangejo/build
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER_NAME }}
+        password: ${{ secrets.SERVER_PASS }}
