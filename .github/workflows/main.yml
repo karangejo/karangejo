@@ -8,8 +8,6 @@ on:
   push:
     branches: [ master ]
 
-  
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -18,26 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    # install and build the application
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '12.x'
-    - run: npm install
-    - run: npm run build
-    # erase build folder
+    # git pull the app install dependencies and build it on remote server
     - uses: garygrossgarten/github-action-ssh@v0.5.0
       with:
-        command: rm -r /home/karang/Documents/karangejo/build ; mkdir /home/karang/Documents/karangejo/build
+        command: git pull ; npm install ; npm run build
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER_NAME }}
         password: ${{ secrets.SERVER_PASS }}
-    # Copy new build to remote location
-    - uses: garygrossgarten/github-action-scp@release
-      with:
-        local: ./build
-        remote: /home/karang/Documents/karangejo/build
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USER_NAME }}
-        password: ${{ secrets.SERVER_PASS }}
+ 
