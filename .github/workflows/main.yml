@@ -7,6 +7,7 @@ name: Deploy over SSH
 on:
   push:
     branches: [ master ]
+
   
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -15,16 +16,20 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
     # install and build the application
-    - name: build
-      run: |
-        npm install,
-        npm run build
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run build
     # erase build folder
     - uses: garygrossgarten/github-action-ssh@v0.5.0
       with:
