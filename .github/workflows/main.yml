@@ -19,7 +19,7 @@ jobs:
     # git pull the app install dependencies and build it on remote server
     - uses: garygrossgarten/github-action-ssh@v0.5.0
       with:
-        command: git pull ; npm install ; npm run build
+        command: cd /home/karang/Documents/karangejo ; git pull ; npm install ; npm run build
         host: ${{ secrets.SERVER_IP }}
         username: ${{ secrets.SERVER_USER_NAME }}
         password: ${{ secrets.SERVER_PASS }}
