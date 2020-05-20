@@ -7,17 +7,18 @@ import FishRight from "../components/fishRight";
 import FishLeft from "../components/fishLeft";
 import OnePost from "../components/post";
 import axios from "axios";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 function Post(props) {
   const [post, setPost] = useState([]);
-  const [display, setDisplay] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const getPost = (id) => {
     axios
       .post(process.env.REACT_APP_GET_ONE_POST_BY_ID_URL, { id: id })
       .then((res) => {
         setPost(res.data[0]);
-        setDisplay(true);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -48,6 +49,11 @@ function Post(props) {
     );
   };
 
+  const displayLoading = () => {
+    console.log("loading");
+    return <LinearProgress variant="query" />;
+  };
+
   return (
     <Layout
       boatImage={Boat}
@@ -55,7 +61,7 @@ function Post(props) {
       borderLeft={<FishLeft alignItems="flex-end" />}
       borderRight={<FishRight alignItems="flex-start" />}
     >
-      {display && displayOnePost()}
+      {isLoading ? displayLoading() : displayOnePost()}
     </Layout>
   );
 }

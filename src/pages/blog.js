@@ -6,6 +6,7 @@ import FishRight from "../components/fishRight";
 import FishLeft from "../components/fishLeft";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 function shuffle(arr) {
   let array = [...arr];
@@ -19,6 +20,7 @@ function shuffle(arr) {
 
 function Blog(props) {
   const [posts, setAllPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
 
   const getPosts = () => {
@@ -26,6 +28,7 @@ function Blog(props) {
       .get(process.env.REACT_APP_GET_ALL_POSTS_URL)
       .then((res) => {
         setAllPosts(res.data);
+        setIsLoading(false);
         //    console.log(res.data);
       })
       .catch((err) => {
@@ -49,7 +52,6 @@ function Blog(props) {
         <Paper
           key={key}
           style={{
-            width: "25vw",
             background: "transparent",
             cursor: "pointer",
           }}
@@ -72,6 +74,11 @@ function Blog(props) {
     return items;
   };
 
+  const displayLoading = () => {
+    console.log("loading");
+    return <LinearProgress variant="query" />;
+  };
+
   return (
     <Layout
       boatImage={Boat}
@@ -90,7 +97,7 @@ function Blog(props) {
         <Grid item>
           <h1 align="center">Blog</h1>
         </Grid>
-        <Grid item>{displayAllPosts()}</Grid>
+        <Grid item style={isLoading ? {width: "100%"} : null}>{isLoading ? displayLoading() : displayAllPosts()}</Grid>
       </Grid>
     </Layout>
   );
