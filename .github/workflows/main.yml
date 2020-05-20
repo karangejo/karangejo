@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy over SSH
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  push:
+    branches: [ master ]
+  
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    # install and build the application
+    - name: build
+      run: |
+        npm install,
+        npm run build
+    # erase build folder
+    - uses: garygrossgarten/github-action-ssh@v0.5.0
+      with:
+        command: rm -r /home/karang/Documents/karangejo/build
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER_NAME }}
+        password: ${{ secrets.SERVER_PASS }}
+    # Copy new build to remote location
+    - uses: garygrossgarten/github-action-scp@release
+      with:
+        local: ./build/
+        remote: /home/karang/Documents/karangejo/
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER_NAME }}
+        password: ${{ secrets.SERVER_PASS }}
