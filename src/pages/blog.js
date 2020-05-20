@@ -7,6 +7,16 @@ import FishLeft from "../components/fishLeft";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
+function shuffle(arr) {
+  let array = [...arr];
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+
+  return array;
+}
+
 function Blog(props) {
   const [posts, setAllPosts] = useState([]);
   const history = useHistory();
@@ -32,7 +42,8 @@ function Blog(props) {
   };
 
   const displayAllPosts = () => {
-    const items = posts.map((item, key) => {
+    const shuffledPosts = shuffle(posts);
+    const items = shuffledPosts.map((item, key) => {
       const itemId = item._id;
       return (
         <Paper
