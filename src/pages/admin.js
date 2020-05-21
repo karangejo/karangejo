@@ -70,14 +70,12 @@ function Admin() {
       axios
         .post(process.env.REACT_APP_SUBMIT_ONE_POST_URL, post)
         .then((res) => {
-           console.log(res);
-           getPosts();
+          console.log(res);
+          getPosts();
         })
         .catch((err) => {
           console.log(err);
         });
-
-      
     } else {
       console.log("invalid inputs");
     }
@@ -94,7 +92,6 @@ function Admin() {
       .catch((err) => {
         console.log(err);
       });
-    
   };
 
   const displayAllPosts = () => {

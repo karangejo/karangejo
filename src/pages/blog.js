@@ -97,7 +97,9 @@ function Blog(props) {
         <Grid item>
           <h1 align="center">Blog</h1>
         </Grid>
-        <Grid item style={isLoading ? {width: "100%"} : null}>{isLoading ? displayLoading() : displayAllPosts()}</Grid>
+        <Grid item style={isLoading ? { width: "100%" } : null}>
+          {isLoading ? displayLoading() : displayAllPosts()}
+        </Grid>
       </Grid>
     </Layout>
   );
